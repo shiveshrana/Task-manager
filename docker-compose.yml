@@ -1,7 +1,6 @@
 services:
   db:
     image: postgres:16-alpine
-    container_name: taskflow-db
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-taskflow}
@@ -17,18 +16,15 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
-    # No ports exposed to the host — only reachable from other containers
-    # on taskflow-network, keeping the database off the public surface.
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: taskflow-backend
     restart: unless-stopped
     environment:
       ENVIRONMENT: ${ENVIRONMENT:-development}
-      DATABASE_URL: postgresql://${POSTGRES_USER:-taskflow_user}:${POSTGRES_PASSWORD:-change_me}@db:5432/${POSTGRES_DB:-taskflow}
+      DATABASE_URL: postgresql://${POSTGRES_USER:***@db:5432/${POSTGRES_DB:-taskflow}
       JWT_SECRET_KEY: ${JWT_SECRET_KEY:-change_me}
       JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
@@ -53,7 +49,6 @@ services:
       dockerfile: Dockerfile
       args:
         VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
-    container_name: taskflow-frontend
     restart: unless-stopped
     ports:
       - "80:80"
@@ -63,7 +58,7 @@ services:
     networks:
       - taskflow-network
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O-", "http://localhost:80/healthz"]
+      test: ["CMD", "wget", "-q", "-O-", "http://127.0.0.1:80/healthz"]
       interval: 15s
       timeout: 5s
       retries: 5

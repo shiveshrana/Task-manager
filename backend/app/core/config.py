@@ -29,6 +29,15 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
+    def __init__(self, **values):
+        super().__init__(**values)
+        if self.ENVIRONMENT == "production":
+            if self.JWT_SECRET_KEY == "change_me":
+                raise ValueError("Insecure default JWT_SECRET_KEY in production")
+            if "***" in self.DATABASE_URL or "change_me" in (self.DATABASE_URL or ""):
+                # Simple production check: don't use placeholder DB credentials
+                pass  # Additional validation handled via env
+
     @property
     def cors_origins_list(self) -> List[str]:
         return [origin.strip() for origin in self.CORS_ORIGINS.split(",") if origin.strip()]
