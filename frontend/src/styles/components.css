@@ -1,0 +1,178 @@
+.tf-card {
+  background: var(--tf-surface);
+  border: 1px solid var(--tf-border);
+  border-radius: var(--tf-radius-md);
+  box-shadow: var(--tf-shadow-card);
+}
+
+.tf-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.tf-page-title {
+  font-size: 26px;
+}
+
+.tf-page-subtitle {
+  color: var(--tf-ink-soft);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--tf-radius-sm);
+  border: 1px solid transparent;
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.tf-btn-primary {
+  background: var(--tf-indigo);
+  color: white;
+}
+
+.tf-btn-primary:hover {
+  background: var(--tf-indigo-dark);
+}
+
+.tf-btn-secondary {
+  background: var(--tf-surface);
+  border-color: var(--tf-border);
+  color: var(--tf-ink);
+}
+
+.tf-btn-secondary:hover {
+  background: var(--tf-paper);
+}
+
+.tf-btn-danger {
+  background: transparent;
+  color: var(--tf-coral);
+}
+
+.tf-btn-danger:hover {
+  background: color-mix(in srgb, var(--tf-coral) 10%, white);
+}
+
+.tf-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tf-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tf-ink-soft);
+}
+
+.tf-input,
+.tf-select,
+.tf-textarea {
+  border: 1px solid var(--tf-border);
+  border-radius: var(--tf-radius-sm);
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--tf-surface);
+  color: var(--tf-ink);
+}
+
+.tf-input:focus,
+.tf-select:focus,
+.tf-textarea:focus {
+  outline: none;
+  border-color: var(--tf-indigo);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tf-indigo) 15%, white);
+}
+
+.tf-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.tf-error {
+  background: color-mix(in srgb, var(--tf-coral) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--tf-coral) 30%, white);
+  color: var(--tf-coral);
+  padding: 10px 14px;
+  border-radius: var(--tf-radius-sm);
+  font-size: 13.5px;
+  margin-bottom: 16px;
+}
+
+.tf-empty {
+  text-align: center;
+  padding: 56px 24px;
+  color: var(--tf-ink-soft);
+}
+
+.tf-empty h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: var(--tf-ink);
+}
+
+.tf-empty p {
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.tf-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 23, 31, 0.4);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px;
+  z-index: 100;
+}
+
+.tf-modal {
+  background: var(--tf-surface);
+  border-radius: var(--tf-radius-md);
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(20, 23, 31, 0.18);
+}
+
+.tf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tf-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--tf-slate);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.tf-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}

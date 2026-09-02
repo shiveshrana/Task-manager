@@ -1,0 +1,154 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.shell-sidebar {
+  width: 232px;
+  flex-shrink: 0;
+  background: var(--tf-surface);
+  border-right: 1px solid var(--tf-border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.shell-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 24px;
+}
+
+.shell-brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--tf-indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--tf-font-display);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.shell-brand-name {
+  font-family: var(--tf-font-display);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+.shell-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.shell-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--tf-radius-sm);
+  color: var(--tf-ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.shell-nav-link:hover {
+  background: var(--tf-paper);
+  color: var(--tf-ink);
+}
+
+.shell-nav-link.active {
+  background: color-mix(in srgb, var(--tf-indigo) 10%, white);
+  color: var(--tf-indigo-dark);
+}
+
+.shell-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid var(--tf-border);
+  margin-top: 8px;
+}
+
+.shell-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tf-ink);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.shell-user-info {
+  min-width: 0;
+}
+
+.shell-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shell-logout {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--tf-slate);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.shell-logout:hover {
+  color: var(--tf-coral);
+}
+
+.shell-main {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1180px;
+}
+
+@media (max-width: 860px) {
+  .shell {
+    flex-direction: column;
+  }
+  .shell-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+  }
+  .shell-nav {
+    flex-direction: row;
+  }
+  .shell-nav-link span {
+    display: none;
+  }
+  .shell-user-info {
+    display: none;
+  }
+  .shell-main {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,43 @@
+# Environment files
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node / frontend
+node_modules/
+dist/
+frontend/dist/
+npm-debug.log*
+.eslintcache
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Docker
+*.pid
+
+# SonarQube
+.scannerwork/
+.sonar/
+
+# Test coverage
+coverage/
